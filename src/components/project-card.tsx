@@ -18,7 +18,11 @@ interface Props {
   dates: string;
   tags: readonly string[];
   link?: string;
-  image?: string;
+  image?: {
+    src: string;
+    width: number;
+    height: number;
+  };
   video?: string;
   links?: readonly {
     icon: React.ReactNode;
@@ -42,14 +46,12 @@ export function ProjectCard({
 }: Props) {
   return (
     <Card
-      className={
-        "flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full"
-      }
+      className={cn(
+        "flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full",
+        className
+      )}
     >
-      <Link
-        href={href || "#"}
-        className={cn("block cursor-pointer", className)}
-      >
+      <Link href={href || "#"} className="block cursor-pointer">
         {video && (
           <video
             src={video}
@@ -57,15 +59,15 @@ export function ProjectCard({
             loop
             muted
             playsInline
-            className="pointer-events-none mx-auto h-40 w-full object-cover object-top" // needed because random black line at bottom of video
+            className="pointer-events-none mx-auto h-40 w-full object-cover object-top"
           />
         )}
         {image && (
           <Image
-            src={image}
+            src={image.src}
             alt={title}
-            width={600}
-            height={400}
+            width={image.width}
+            height={image.height}
             className="h-40 w-full overflow-hidden object-cover object-top"
           />
         )}
@@ -85,12 +87,8 @@ export function ProjectCard({
       <CardContent className="mt-auto flex flex-col px-2">
         {tags && tags.length > 0 && (
           <div className="mt-2 flex flex-wrap gap-1">
-            {tags?.map((tag) => (
-              <Badge
-                className="px-1 py-0 text-[10px]"
-                variant="secondary"
-                key={tag}
-              >
+            {tags.map((tag) => (
+              <Badge className="px-1 py-0 text-[10px]" variant="secondary" key={tag}>
                 {tag}
               </Badge>
             ))}
@@ -100,9 +98,9 @@ export function ProjectCard({
       <CardFooter className="px-2 pb-2">
         {links && links.length > 0 && (
           <div className="flex flex-row flex-wrap items-start gap-1">
-            {links?.map((link, idx) => (
-              <Link href={link?.href} key={idx} target="_blank">
-                <Badge key={idx} className="flex gap-2 px-2 py-1 text-[10px]">
+            {links.map((link, idx) => (
+              <Link href={link.href} key={idx} target="_blank">
+                <Badge className="flex gap-2 px-2 py-1 text-[10px]">
                   {link.icon}
                   {link.type}
                 </Badge>
