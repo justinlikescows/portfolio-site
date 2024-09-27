@@ -169,7 +169,7 @@ export default function Page() {
                   href={DATA.contact.social.LinkedIn.url}
                   className="text-blue-500 hover:underline"
                 >
-                 on Linkedin
+                 on LinkedIn
                 </Link>{" "}
                 and I&apos;ll respond whenever I can!
               </p>

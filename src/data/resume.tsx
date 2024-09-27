@@ -23,10 +23,13 @@ export const DATA = {
     "C++",
     "MongoDB",
     "Express",
+    "OpenAI",
+    "Stripe",
+
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/resume", icon: NotebookIcon, label: "Resume" },
   ],
   contact: {
     email: "justinmpham714@gmail.com",
@@ -65,9 +68,9 @@ export const DATA = {
       title: "Software Engineering Fellow",
       logoUrl: "/headstarter.jpg",
       start: "July 2024",
-      end: "Present",
+      end: "September 2024",
       description:
-        "Building 5 AI projects in 5 weeks and will garner 1,000 users, waitlisted users, or dollars in the final week.",
+        "Led a team of developers in ideating and implementing four AI-driven applications, including a SAAS Flashcard WebApp and RAG Chatbot",
     },
     {
       company: "ForOurLastNames",
@@ -77,9 +80,12 @@ export const DATA = {
       title: "Full-Stack Engineering Intern",
       logoUrl: "/FOLN.png",
       start: "July 2024",
-      end: "Present",
+      end: "September 2024",
       description:
-        "Developing a referral program, integrating Stripe to track and analyze data to measure effectiveness. Researching custom app functionalities and test distribution tools with Wrap Vendor and TestFlight. Assisting in developing back-end functionality for the B2B Marketplace within the Bubble platform.",
+        `Developed referral features integrating Stripe API to create, track, and analyze program success metrics
+Updated production website UI/UX to align with design specifications, enhancing visual consistency
+Led Agile processes, coordinating with cross-functional teams to ideate and implement project features
+`,
     },
     {
       company: "Westminster School District",
@@ -89,9 +95,13 @@ export const DATA = {
       title: "Educational Technology Developer",
       logoUrl: "/WSD.jpg",
       start: "May 2024",
-      end: "Present",
+      end: "August 22024",
       description:
-        "Collaborating with school district stakeholders to plan and implement a phonetic-focused language learning software catered to dual immersion English-Vietnamese kids, recognizing the lack of existing platform. Leading cross-functional stakeholder meetings in order to plan the prioritization of features. Utilizing Azure AI speech services to provide phonetic analysis and personalized feedback on user speech.",
+        `Engineered a language learning application based on a previous Stanford hackathon project, Fluent.ly
+Collaborated with school district stakeholders to plan and implement a phonetic-focused language learning software catered to dual immersion English-Vietnamese kids, recognizing the lack of existing platform
+Led and organized cross-functional stakeholder meetings in order to ideate and prioritize features
+Utilized Azure AI speech services to provide phonetic analysis and personalized feedback on user speech
+`,
     },
     {
       company: "Wonsulting",
@@ -133,6 +143,63 @@ export const DATA = {
     },
   ],
   projects: [
+    {
+      title: "Rate My Professor Chatbot",
+      href: "https://rate-my-professor-ai-blue.vercel.app/",
+      dates: "June 2024",
+      active: true,
+      description:
+          "A RAG Chatbot that untilizes a provided knowledge base of Rate My Professor data to augment it's response generation",
+      technologies: [
+          "Pinecone",
+          "Next.js",
+          "OpenAI",
+          "MUI",
+      ],
+      links: [
+          // {
+          //     type: "Devpost",
+          //     href: "https://devpost.com/software/j-jzktbg",
+          //     icon: <Icons.globe className="size-3" />,
+          // },
+      ],
+      image: {
+        src: "/RMP.png",
+        width: 600, // Add the width property here
+        height: 400, // Add the height property here
+      },
+      
+      video: "",
+  },
+    {
+      title: "AI Flashcard SAAS",
+      href: "https://ai-flashcard2.vercel.app/",
+      dates: "August 2024",
+      active: true,
+      description:
+          "A SAAS which automates the process of creating flashcards by utilizing AI for question and answer generation.",
+      technologies: [
+          "Firebase",
+          "Stripe",
+          "Openai",
+          "Next.js",
+          "MUI",
+      ],
+      links: [
+          // {
+          //     type: "Devpost",
+          //     href: "https://devpost.com/software/j-jzktbg",
+          //     icon: <Icons.globe className="size-3" />,
+          // },
+      ],
+      image: {
+        src: "/flashcard.png",
+        width: 600, // Add the width property here
+        height: 400, // Add the height property here
+      },
+      
+      video: "",
+  },
     {
       title: "Fluent.ly",
       href: "https://devpost.com/software/j-jzktbg",
