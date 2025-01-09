@@ -11,7 +11,7 @@ export const DATA = {
     "Aspiring software engineer, product manager, and entrepeneur. I love to innovate, ideate, and create.",
   summary:
     "Hi everyone, my name is Justin Pham and I am a third year studying Computer Science and Informatics at the University of California, Irvine. I aspire to work in software engineering or product management post-grad, as I enjoy problem-solving, logical puzzles, and discovering innovative solutions. I have a solid history of leadership, communication, and technology. Outside of my professional life, I love traveling the world, bouldering, and coffee. Thanks for stopping by!",
-  avatarUrl: "/me.png",
+  avatarUrl: "/me.jpg",
   skills: [
     "React",
     "Next.js",
@@ -58,8 +58,70 @@ export const DATA = {
       },
     },
   },
-
+  leadership: [
+    {
+      org: "Product Association",
+      href: "https://www.productuci.com/",
+      badges: [],
+      location: "Irvine, CA",
+      title: "Product Management Fellow",
+      logoUrl: "/product.ico",
+      start: "January 2024",
+      end: "Present",
+      description:
+        `Leading a group of six cross functional team members, including SWEs, designers, and product marketers, across an 11 week intensive product development competition`,
+    },
+    {
+      org: "Delta Sigma Pi",
+      href: "https://www.dspuci.com/",
+      badges: [],
+      location: "Irvine, CA",
+      title: "Vice President of Alumni Relations",
+      logoUrl: "/dsp.jpg",
+      start: "December 2024",
+      end: "Present",
+      description:
+        `Expanding and maintaining database of 300+ alumni. Actively performing outreach to alumni to foster chapter relations.`,
+    },
+    {
+      org: "Undergrade Business Association",
+      href: "https://www.ubauci.org/",
+      badges: [],
+      location: "Irvine, CA",
+      title: "Mentor",
+      logoUrl: "/uba.jpeg",
+      start: "October 2024",
+      end: "December 2024",
+      description:
+        `Fostered a one-on-one mentorship to a lower classman, guiding development in professionalism through proactive resume and cover letter reviews, networking workshops, and interview preparation`,
+    },
+    {
+      org: "Delta Sigma Pi",
+      href: "https://www.dspuci.com/",
+      badges: [],
+      location: "Irvine, CA",
+      title: "Director of Technology",
+      logoUrl: "/dsp.jpg",
+      start: "June 2024",
+      end: "December 2024",
+      description:
+        `Optimizing and managing a GraphQL database, maintaining records for 45+ active brothers and 300+ alumni.
+        Deployed a new React-based recruitment page, increasing means of user acquisition and marketing.`,
+    },
+  ],
   work: [
+    {
+      company: "Capital One",
+      href: "https://www.capitalone.com/",
+      badges: [],
+      location: "McLean, VA",
+      title: "Incoming Product Management Intern",
+      logoUrl: "/c1.png",
+      start: "December 2024",
+      end: "Present",
+      description:
+        "",
+    },
     {
       company: "Headstarter AI",
       href: "https://headstarter.co/",

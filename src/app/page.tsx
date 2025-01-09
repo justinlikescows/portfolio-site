@@ -31,7 +31,7 @@ export default function Page() {
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
-              <Avatar className="size-28 border">
+              <Avatar className="size-32 border">
                 <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
                 <AvatarFallback>{DATA.initials}</AvatarFallback>
               </Avatar>
@@ -69,6 +69,31 @@ export default function Page() {
                 badges={work.badges}
                 period={`${work.start} - ${work.end ?? "Present"}`}
                 description={work.description}
+              />
+            </BlurFade>
+          ))}
+        </div>
+      </section>
+      <section id="leadership">
+        <div className="flex min-h-0 flex-col gap-y-3">
+          <BlurFade delay={BLUR_FADE_DELAY * 5}>
+            <h2 className="text-xl font-bold">Leadership and Involvements</h2>
+          </BlurFade>
+          {DATA.leadership.map((leadership, id) => (
+            <BlurFade
+              key={leadership.org}
+              delay={BLUR_FADE_DELAY * 6 + id * 0.05}
+            >
+              <ResumeCard
+                key={leadership.org}
+                logoUrl={leadership.logoUrl}
+                altText={leadership.org}
+                title={leadership.org}
+                subtitle={leadership.title}
+                href={leadership.href}
+                badges={leadership.badges}
+                period={`${leadership.start} - ${leadership.end ?? "Present"}`}
+                description={leadership.description}
               />
             </BlurFade>
           ))}
