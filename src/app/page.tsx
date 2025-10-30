@@ -196,7 +196,7 @@ export default function Page() {
                 >
                  on LinkedIn
                 </Link>{" "}
-                and I&apos;ll respond whenever I can!
+                and I&apos;ll respond as soon as possible!
               </p>
             </div>
           </BlurFade>

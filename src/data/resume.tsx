@@ -8,9 +8,9 @@ export const DATA = {
   location: "Irvine, CA",
   locationLink: "https://www.google.com/maps/place/irvine",
   description:
-    "Aspiring software engineer, product manager, and entrepeneur. I love to innovate, ideate, and create.",
+    "a software engineer turned product manager. I love take creative ideas and turn them into reality, especially in the realm of Artificial Intelligence.",
   summary:
-    "Hi everyone, my name is Justin Pham and I am a third year studying Computer Science and Informatics at the University of California, Irvine. I aspire to work in software engineering or product management post-grad, as I enjoy problem-solving, logical puzzles, and discovering innovative solutions. I have a solid history of leadership, communication, and technology. Outside of my professional life, I love traveling the world, bouldering, and coffee. Thanks for stopping by!",
+    "Hi everyone, my name is Justin Pham and I am a senior year studying Computer Science and Informatics with an emphasis on Artificial Intellience and Organization & Information Technology at UC Irvine. I aspire to work in product management, as I enjoy problem-solving, logical puzzles, and discovering innovative solutions. My aspirations so far have manifested in the form of software engineering internships of most recently, a product management internship at Capital One. Outside of my professional life, I love traveling the world, bouldering, and coffee. Thanks for stopping by!",
   avatarUrl: "/me.jpg",
   skills: [
     "React",
@@ -66,25 +66,27 @@ export const DATA = {
       location: "Irvine, CA",
       title: "Product Management Fellow",
       logoUrl: "/product.ico",
-      start: "January 2024",
-      end: "Present",
+      start: "January 2025",
+      end: "March 2025",
       description:
-        `Leading a group of six cross functional team members, including SWEs, designers, and product marketers, across an 11 week intensive product development competition`,
+        `• Utilized Jira to manage to navigate evolving feature prioritization and lead a team of 6 students in a 10-week incubator 
+• Drove Unibites from idea to MVP launch by developing product roadmap, aligning stakeholders around core user pain points, and executing an agile development process that generated 100+ user reviews, showing early product-market fit`,
     },
     {
       org: "Delta Sigma Pi",
       href: "https://www.dspuci.com/",
       badges: [],
       location: "Irvine, CA",
-      title: "Vice President of Alumni Relations",
+      title: "Director of Technology and Vice President of Alumni Relations",
       logoUrl: "/dsp.jpg",
-      start: "December 2024",
-      end: "Present",
+      start: "June 2024",
+      end: "June 2025",
       description:
-        `Expanding and maintaining database of 300+ alumni. Actively performing outreach to alumni to foster chapter relations.`,
+        `• Developed the Chapter's first interactive alumni analytics dashboard using Next.js, Tailwind CSS, and Framer Motion, enabling dynamic search, visualization, and Excel data ingestion for 400+ Delta Sigma Pi alumni profiles
+• Modernized the chapter website with React componentization, shifting the static  site into a dynamic, scalable platform`,
     },
     {
-      org: "Undergrade Business Association",
+      org: "Undergraduate Business Association",
       href: "https://www.ubauci.org/",
       badges: [],
       location: "Irvine, CA",
@@ -93,20 +95,7 @@ export const DATA = {
       start: "October 2024",
       end: "December 2024",
       description:
-        `Fostered a one-on-one mentorship to a lower classman, guiding development in professionalism through proactive resume and cover letter reviews, networking workshops, and interview preparation`,
-    },
-    {
-      org: "Delta Sigma Pi",
-      href: "https://www.dspuci.com/",
-      badges: [],
-      location: "Irvine, CA",
-      title: "Director of Technology",
-      logoUrl: "/dsp.jpg",
-      start: "June 2024",
-      end: "December 2024",
-      description:
-        `Optimizing and managing a GraphQL database, maintaining records for 45+ active brothers and 300+ alumni.
-        Deployed a new React-based recruitment page, increasing means of user acquisition and marketing.`,
+        `• Fostered a one-on-one mentorship to a lower classman, guiding development in professionalism through proactive resume and cover letter reviews, networking workshops, and interview preparation`,
     },
   ],
   work: [
@@ -115,13 +104,30 @@ export const DATA = {
       href: "https://www.capitalone.com/",
       badges: [],
       location: "McLean, VA",
-      title: "Incoming Product Management Intern",
+      title: "Product Management Intern",
       logoUrl: "/c1.png",
-      start: "December 2024",
-      end: "Present",
+      start: "June 2025",
+      end: "August 2025",
       description:
-        "",
-    },
+      `• Spearheaded the Dynamic Decisioning MVP to revolutionize proactive interactive voice response experiences, projected to save customers 55,000 hours monthly and reduce TCT by 8.4% through personalized user flows
+• Conducted trade-off analysis for  the "buy" decision of RulesLab as an enterprise decisioning platform over a "build" of an in-house build, enabling agile rule management and empowering business users by reducing development overhead
+• Collaborated with engineers to design a scalable, microservice architecture between 3 orchestration layers
+• Outlined a phased product roadmap, with an initial build design focused on scalable data ingestion and setting the technical foundation for integrating AI predictive capabilities with a classification model based on customer data`,
+  },
+  {
+    company: "Neoboard",
+    href: "https://www.linkedin.com/company/neoboardapp/",
+    badges: [],
+    location: "Irvine, CA",
+    title: "Software Engineer Intern",
+    logoUrl: "/neoboard.jpg",
+    start: "January 2025",
+    end: "June 2025",
+    description:
+      `• Engineered a 3-service Dockerized distributed system, integrating it with Canvas LMS via LTI 1.3 standards
+• Implemented core asynchronous processing for AI text detection by integrating three third-party APIs with features including intelligent scheduling and an automatic retry mechanism for submission processing
+• Conducted requirements engineering and user validation testing through interviews and surveys with 10+ professors`,
+  },
     {
       company: "Headstarter AI",
       href: "https://headstarter.co/",
@@ -132,7 +138,7 @@ export const DATA = {
       start: "July 2024",
       end: "September 2024",
       description:
-        "Led a team of developers in ideating and implementing four AI-driven applications, including a SAAS Flashcard WebApp and RAG Chatbot",
+        "• Led a team of developers in ideating and implementing four AI-driven applications, including a SAAS Flashcard WebApp and RAG Chatbot",
     },
     {
       company: "ForOurLastNames",
@@ -144,26 +150,10 @@ export const DATA = {
       start: "July 2024",
       end: "September 2024",
       description:
-        `Developed referral features integrating Stripe API to create, track, and analyze program success metrics
-Updated production website UI/UX to align with design specifications, enhancing visual consistency
-Led Agile processes, coordinating with cross-functional teams to ideate and implement project features
-`,
-    },
-    {
-      company: "Westminster School District",
-      href: "https://www.wsdk8.us/",
-      badges: [],
-      location: "Westminster, CA",
-      title: "Educational Technology Developer",
-      logoUrl: "/WSD.jpg",
-      start: "May 2024",
-      end: "August 22024",
-      description:
-        `Engineered a language learning application based on a previous Stanford hackathon project, Fluent.ly
-Collaborated with school district stakeholders to plan and implement a phonetic-focused language learning software catered to dual immersion English-Vietnamese kids, recognizing the lack of existing platform
-Led and organized cross-functional stakeholder meetings in order to ideate and prioritize features
-Utilized Azure AI speech services to provide phonetic analysis and personalized feedback on user speech
-`,
+        `• Constructed user growth platform features, utilizing tools such as Stripe for cross-user referral incentivization, social media APIs for multimedia sharing, and Google Chart API to visualize program success metrics
+• Designed and engineered a scalable PostgreSQL user schema, enabling the creation of a dynamic friends list feature in a 100+ user base, enhancing user interaction and engagement by 25% across core features through content sharing
+• Aligned production website's UI/UX to meet design specifications and wireframes, enhancing visual consistency
+• Organized and led meetings with cross-functional teams, facilitating standups and storyboard progress checks`,
     },
     {
       company: "Wonsulting",
@@ -175,8 +165,11 @@ Utilized Azure AI speech services to provide phonetic analysis and personalized 
       start: "June 2022",
       end: "October 2022",
       description:
-        "Identified key areas in which the main Wonsulting product offering was lacking through user feedback analysis. Led iterative design approach utilizing Colab, working with the marketing team to guide feature creation. Developed Python scripts and backend API calls to integrate AI for automated bullet point generation.",
-    },
+      `• Identified key areas in which the main Wonsulting product offering was lacking through user feedback analysis
+• Conducted prompt engineering to refine model output, evaluating generations against a defined quality rubric
+• Led a iterative design approach utilizing Google Colab, working with the design team to guide feature creation
+• Developed Python scripts and API infrastructure to integrate GPT 3.0 for automated resume bullet point generation`,
+  },
   ],
   education: [
     {
@@ -185,7 +178,7 @@ Utilized Azure AI speech services to provide phonetic analysis and personalized 
       degree: "B.S. Computer Science",
       logoUrl: "/uci.png",
       start: "September 2022",
-      end: "EST December 2025",
+      end: "December 2025",
     },
     {
       school: "University of California, Irvine",
@@ -193,7 +186,7 @@ Utilized Azure AI speech services to provide phonetic analysis and personalized 
       degree: "B.S. Informatics",
       logoUrl: "/uci.png",
       start: "September 2022",
-      end: "EST December 2025",
+      end: "December 2025",
     },
     {
       school: "Garden Grove High School",
