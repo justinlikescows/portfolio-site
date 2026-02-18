@@ -1,114 +1,195 @@
-import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import Link from "next/link";
-import Markdown from "react-markdown";
+"use client";
 
-interface Props {
+import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { useState } from "react";
+import { X, ExternalLink } from "lucide-react";
+import { StickerBadge } from "./sticker";
+
+interface ProjectCardProps {
   title: string;
-  href?: string;
   description: string;
   dates: string;
   tags: readonly string[];
-  link?: string;
-  image?: {
-    src: string;
-    width: number;
-    height: number;
+  image?: { src: string; width: number; height: number };
+  href: string;
+  productContext?: {
+    problem: string;
+    targetAudience: string;
+    impact: readonly { metric: string; value: string }[];
+    productDecisions: readonly string[];
+    learnings: string;
   };
-  video?: string;
-  links?: readonly {
-    icon: React.ReactNode;
-    type: string;
-    href: string;
-  }[];
-  className?: string;
+  index: number;
 }
 
 export function ProjectCard({
   title,
-  href,
   description,
   dates,
   tags,
-  link,
   image,
-  video,
-  links,
-  className,
-}: Props) {
+  href,
+  productContext,
+  index,
+}: ProjectCardProps) {
+  const [expanded, setExpanded] = useState(false);
+  const rotation = index % 2 === 0 ? -1.5 : 1.5;
+
   return (
-    <Card
-      className={cn(
-        "flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full",
-        className
-      )}
-    >
-      <Link href={href || "#"} className="block cursor-pointer">
-        {video && (
-          <video
-            src={video}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="pointer-events-none mx-auto h-40 w-full object-cover object-top"
-          />
-        )}
-        {image && (
-          <Image
-            src={image.src}
-            alt={title}
-            width={image.width}
-            height={image.height}
-            className="h-40 w-full overflow-hidden object-cover object-top"
-          />
-        )}
-      </Link>
-      <CardHeader className="px-2">
-        <div className="space-y-1">
-          <CardTitle className="mt-1 text-base">{title}</CardTitle>
-          <time className="font-sans text-xs">{dates}</time>
-          <div className="hidden font-sans text-xs underline print:visible">
-            {link?.replace("https://", "").replace("www.", "").replace("/", "")}
+    <>
+      <motion.div
+        className="cursor-pointer group"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        onClick={() => setExpanded(true)}
+      >
+        <div
+          className="bg-white dark:bg-[hsl(30,15%,14%)] p-3 pb-6 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-[1.02]"
+          style={{ transform: `rotate(${rotation}deg)` }}
+        >
+          {image && (
+            <div className="relative overflow-hidden bg-muted aspect-[3/2]">
+              <Image
+                src={image.src}
+                alt={title}
+                fill
+                className="object-cover"
+              />
+            </div>
+          )}
+          <div className="mt-3 px-1">
+            <div className="flex items-start justify-between gap-2">
+              <h3 className="font-serif text-lg">{title}</h3>
+              <span className="font-hand text-sm text-muted-foreground shrink-0">{dates}</span>
+            </div>
+            <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{description}</p>
+            <div className="flex flex-wrap gap-1.5 mt-3">
+              {tags.map((tag, i) => (
+                <span
+                  key={tag}
+                  className="text-xs px-2 py-0.5 bg-secondary rounded-full text-secondary-foreground"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
-          <Markdown className="prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert">
-            {description}
-          </Markdown>
         </div>
-      </CardHeader>
-      <CardContent className="mt-auto flex flex-col px-2">
-        {tags && tags.length > 0 && (
-          <div className="mt-2 flex flex-wrap gap-1">
-            {tags.map((tag) => (
-              <Badge className="px-1 py-0 text-[10px]" variant="secondary" key={tag}>
-                {tag}
-              </Badge>
-            ))}
-          </div>
+      </motion.div>
+
+      {/* Case Study Modal */}
+      <AnimatePresence>
+        {expanded && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="absolute inset-0 bg-ink/40 dark:bg-ink/60 backdrop-blur-sm"
+              onClick={() => setExpanded(false)}
+            />
+            <motion.div
+              className="relative bg-card border border-border rounded-lg shadow-2xl w-full max-w-2xl max-h-[85vh] overflow-y-auto"
+              initial={{ scale: 0.9, y: 30 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 30 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            >
+              <div className="sticky top-0 bg-card/90 backdrop-blur-sm border-b border-border p-4 flex items-center justify-between z-10">
+                <h2 className="font-serif text-xl">{title}</h2>
+                <button
+                  onClick={() => setExpanded(false)}
+                  className="p-2 hover:bg-muted rounded-lg transition-colors"
+                >
+                  <X className="size-5" />
+                </button>
+              </div>
+
+              <div className="p-6 space-y-6">
+                {image && (
+                  <div className="relative overflow-hidden rounded-lg bg-muted aspect-video">
+                    <Image src={image.src} alt={title} fill className="object-cover" />
+                  </div>
+                )}
+
+                <p className="text-muted-foreground">{description}</p>
+
+                <div className="flex flex-wrap gap-2">
+                  {tags.map((tag, i) => (
+                    <StickerBadge key={tag} index={i}>{tag}</StickerBadge>
+                  ))}
+                </div>
+
+                {productContext && (
+                  <>
+                    <div className="space-y-4">
+                      <div>
+                        <h3 className="font-serif text-lg mb-2">The Problem</h3>
+                        <p className="text-sm text-muted-foreground bg-secondary/50 p-4 rounded-lg border-l-3 border-warmred">
+                          {productContext.problem}
+                        </p>
+                      </div>
+
+                      <div>
+                        <h3 className="font-serif text-lg mb-2">Target Audience</h3>
+                        <p className="text-sm text-muted-foreground">{productContext.targetAudience}</p>
+                      </div>
+
+                      {productContext.impact.length > 0 && (
+                        <div>
+                          <h3 className="font-serif text-lg mb-2">Impact</h3>
+                          <div className="grid grid-cols-2 gap-3">
+                            {productContext.impact.map((item, i) => (
+                              <div key={i} className="bg-secondary/50 rounded-lg p-3 text-center">
+                                <div className="font-serif text-xl text-warmred">{item.value}</div>
+                                <div className="text-xs text-muted-foreground mt-1">{item.metric}</div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      <div>
+                        <h3 className="font-serif text-lg mb-2">Key Decisions</h3>
+                        <ul className="space-y-2">
+                          {productContext.productDecisions.map((d, i) => (
+                            <li key={i} className="text-sm text-muted-foreground flex gap-2">
+                              <span className="text-warmred shrink-0">-</span>
+                              <span>{d}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h3 className="font-serif text-lg mb-2">What I Learned</h3>
+                        <p className="text-sm text-muted-foreground italic">
+                          &ldquo;{productContext.learnings}&rdquo;
+                        </p>
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-warmred hover:underline"
+                >
+                  View Project <ExternalLink className="size-3.5" />
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
         )}
-      </CardContent>
-      <CardFooter className="px-2 pb-2">
-        {links && links.length > 0 && (
-          <div className="flex flex-row flex-wrap items-start gap-1">
-            {links.map((link, idx) => (
-              <Link href={link.href} key={idx} target="_blank">
-                <Badge className="flex gap-2 px-2 py-1 text-[10px]">
-                  {link.icon}
-                  {link.type}
-                </Badge>
-              </Link>
-            ))}
-          </div>
-        )}
-      </CardFooter>
-    </Card>
+      </AnimatePresence>
+    </>
   );
 }

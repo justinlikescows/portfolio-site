@@ -4,65 +4,53 @@
 
 @layer base {
   :root {
-    --background: #F8F7F4; /* Light mode background */
-    --foreground: #0b1215; /* Light mode foreground */
+    --background: 38 28% 92%;
+    --foreground: 25 15% 12%;
 
-    --card: #F8F7F4; /* Light mode card background */
-    --card-foreground: #0b1215; /* Light mode card foreground */
+    --card: 38 25% 95%;
+    --card-foreground: 25 15% 12%;
 
-    --popover: #F8F7F4; /* Light mode popover background */
-    --popover-foreground: #0b1215; /* Light mode popover foreground */
+    --primary: 25 15% 12%;
+    --primary-foreground: 38 28% 92%;
 
-    --primary: #F8F7F4; /* Light mode primary color */
-    --primary-foreground: #0b1215; /* Light mode primary foreground */
+    --secondary: 34 25% 86%;
+    --secondary-foreground: 25 15% 12%;
 
-    --secondary: #E0E0E0; /* Light mode secondary color */
-    --secondary-foreground: #0b1215; /* Light mode secondary foreground */
+    --muted: 34 18% 88%;
+    --muted-foreground: 25 12% 38%;
 
-    --muted: #E0E0E0; /* Light mode muted color */
-    --muted-foreground: #737373; /* Light mode muted foreground */
+    --accent: 16 68% 46%;
+    --accent-foreground: 38 28% 96%;
 
-    --accent: #E0E0E0; /* Light mode accent color */
-    --accent-foreground: #0b1215; /* Light mode accent foreground */
-
-    --destructive: #FF6B6B; /* Light mode destructive color */
-    --destructive-foreground: #F8F7F4; /* Light mode destructive foreground */
-
-    --border: #D0D0D0; /* Light mode border color */
-    --input: #D0D0D0; /* Light mode input color */
-    --ring: #0b1215; /* Light mode ring color */
+    --border: 34 18% 78%;
+    --input: 34 18% 78%;
+    --ring: 25 15% 12%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: #0b1215; /* Dark mode background */
-    --foreground: #F8F7F4; /* Dark mode foreground */
+    --background: 28 18% 8%;
+    --foreground: 38 22% 88%;
 
-    --card: #0b1215; /* Dark mode card background */
-    --card-foreground: #F8F7F4; /* Dark mode card foreground */
+    --card: 28 18% 11%;
+    --card-foreground: 38 22% 88%;
 
-    --popover: #0b1215; /* Dark mode popover background */
-    --popover-foreground: #F8F7F4; /* Dark mode popover foreground */
+    --primary: 38 22% 88%;
+    --primary-foreground: 28 18% 8%;
 
-    --primary: #0b1215; /* Dark mode primary color */
-    --primary-foreground: #F8F7F4; /* Dark mode primary foreground */
+    --secondary: 28 14% 15%;
+    --secondary-foreground: 38 22% 88%;
 
-    --secondary: #1C1C1C; /* Dark mode secondary color */
-    --secondary-foreground: #F8F7F4; /* Dark mode secondary foreground */
+    --muted: 28 12% 17%;
+    --muted-foreground: 34 14% 55%;
 
-    --muted: #1C1C1C; /* Dark mode muted color */
-    --muted-foreground: #B0B0B0; /* Dark mode muted foreground */
+    --accent: 16 68% 46%;
+    --accent-foreground: 38 28% 96%;
 
-    --accent: #1C1C1C; /* Dark mode accent color */
-    --accent-foreground: #F8F7F4; /* Dark mode accent foreground */
-
-    --destructive: #FF6B6B; /* Dark mode destructive color */
-    --destructive-foreground: #F8F7F4; /* Dark mode destructive foreground */
-
-    --border: #1C1C1C; /* Dark mode border color */
-    --input: #1C1C1C; /* Dark mode input color */
-    --ring: #F8F7F4; /* Dark mode ring color */
+    --border: 28 12% 18%;
+    --input: 28 12% 18%;
+    --ring: 38 22% 88%;
   }
 }
 
@@ -70,11 +58,97 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
 
+/* Paper grain texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+.dark body::before {
+  opacity: 0.02;
+}
+
+/* Graph paper dot grid overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 49;
+  opacity: 0.025;
+  background-image: radial-gradient(circle, hsl(30 30% 50%) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.dark body::after {
+  opacity: 0.015;
+  background-image: radial-gradient(circle, hsl(30 15% 40%) 1px, transparent 1px);
+}
+
+@layer utilities {
+  .sticker {
+    @apply bg-white dark:bg-[hsl(30,15%,14%)] border-[3px] border-white dark:border-[hsl(30,12%,20%)] rounded-lg shadow-md;
+  }
+
+  .sticker-shadow {
+    box-shadow:
+      2px 3px 8px rgba(0, 0, 0, 0.1),
+      0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+
+  .dark .sticker-shadow {
+    box-shadow:
+      2px 3px 8px rgba(0, 0, 0, 0.3),
+      0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .tape {
+    position: relative;
+  }
+
+  .tape::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 60px;
+    height: 20px;
+    background: rgba(200, 185, 155, 0.5);
+    border-radius: 2px;
+    z-index: 1;
+  }
+
+  .dark .tape::before {
+    background: rgba(120, 110, 90, 0.35);
+  }
+
+  .polaroid {
+    @apply bg-white dark:bg-[hsl(30,15%,14%)] p-2 pb-8 shadow-lg;
+  }
+
+  .torn-edge {
+    --mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 
+      50% / 20px 100%;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+  }
+}
+
+/* Prose styling for blog */
 h3 code {
   @apply !text-lg md:!text-xl;
 }
@@ -126,8 +200,6 @@ code {
 code > [data-line]::before {
   counter-increment: line;
   content: counter(line);
-
-  /* Other styling */
   display: inline-block;
   width: 1rem;
   margin-right: 2rem;
@@ -141,4 +213,51 @@ code[data-line-numbers-max-digits="2"] > [data-line]::before {
 
 code[data-line-numbers-max-digits="3"] > [data-line]::before {
   width: 3rem;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: hsl(14 70% 50% / 0.2);
+}
+
+/* Ink bleed animation for stickers */
+@keyframes ink-bleed {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.05);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+  }
+}
+
+.ink-bleed-hover:hover {
+  animation: ink-bleed 2s ease-in-out infinite;
+}
+
+/* Stamp in animation */
+@keyframes stamp-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.stamp-in {
+  animation: stamp-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }

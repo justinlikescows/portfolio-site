@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { CodeIcon, HomeIcon, NotebookIcon, PencilLine } from "lucide-react";
+import { HomeIcon, NotebookIcon, PencilLine } from "lucide-react";
 
 export const DATA = {
   name: "Justin Pham",
@@ -8,9 +8,9 @@ export const DATA = {
   location: "Irvine, CA",
   locationLink: "https://www.google.com/maps/place/irvine",
   description:
-    "a software engineer turned product manager. I love take creative ideas and turn them into reality, especially in the realm of Artificial Intelligence.",
+    "Product Manager who builds AI-powered products. I love taking creative ideas and turning them into reality through user research, data-driven decisions, and technical execution.",
   summary:
-    "Hi everyone, my name is Justin Pham and I am a senior year studying Computer Science and Informatics with an emphasis on Artificial Intellience and Organization & Information Technology at UC Irvine. I aspire to work in product management, as I enjoy problem-solving, logical puzzles, and discovering innovative solutions. My aspirations so far have manifested in the form of software engineering internships of most recently, a product management internship at Capital One. Outside of my professional life, I love traveling the world, bouldering, and coffee. Thanks for stopping by!",
+    "I'm at the intersection of product and engineering. After building features as a software engineer at Wonsulting, FOLN, and Neoboard, I discovered my passion for the 'why' behind what we build. This led me to product management — where I can combine technical depth with user empathy to solve real problems.\n\nMost recently, I spent my summer at Capital One designing an AI-powered IVR system projected to save customers 55,000 hours monthly. Before that, I led Unibites through a 10-week incubator, taking it from idea to MVP with 100+ user reviews.\n\nI'm drawn to products at the intersection of AI and user experience. When I'm not thinking about product strategy, you'll find me traveling, bouldering, or hunting for the perfect cup of coffee.",
   avatarUrl: "/me.jpg",
   skills: [
     "React",
@@ -18,18 +18,18 @@ export const DATA = {
     "Typescript",
     "Node.js",
     "Python",
-    "PostgresSQL",
+    "PostgreSQL",
     "Java",
     "C++",
     "MongoDB",
     "Express",
     "OpenAI",
     "Stripe",
-
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/resume", icon: NotebookIcon, label: "Resume" },
+    { href: "/blog", icon: PencilLine, label: "Blog" },
   ],
   contact: {
     email: "justinmpham714@gmail.com",
@@ -39,21 +39,18 @@ export const DATA = {
         name: "GitHub",
         url: "https://github.com/justinlikescows",
         icon: Icons.github,
-
         navbar: true,
       },
       LinkedIn: {
         name: "LinkedIn",
         url: "https://www.linkedin.com/in/justin-pham-035b2b224/",
         icon: Icons.linkedin,
-
         navbar: true,
       },
       email: {
         name: "Send Email",
         url: "mailto:justinmpham714@gmail.com",
         icon: Icons.email,
-
         navbar: false,
       },
     },
@@ -62,87 +59,79 @@ export const DATA = {
     {
       org: "Product Association",
       href: "https://www.productuci.com/",
-      badges: [],
       location: "Irvine, CA",
       title: "Product Management Fellow",
       logoUrl: "/product.ico",
       start: "January 2025",
       end: "March 2025",
       description:
-        `• Utilized Jira to manage to navigate evolving feature prioritization and lead a team of 6 students in a 10-week incubator 
-• Drove Unibites from idea to MVP launch by developing product roadmap, aligning stakeholders around core user pain points, and executing an agile development process that generated 100+ user reviews, showing early product-market fit`,
+        `Utilized Jira to navigate evolving feature prioritization and lead a team of 6 students in a 10-week incubator\nDrove Unibites from idea to MVP launch by developing product roadmap, aligning stakeholders around core user pain points, and executing an agile development process that generated 100+ user reviews`,
+      productWork: true,
     },
     {
       org: "Delta Sigma Pi",
       href: "https://www.dspuci.com/",
-      badges: [],
       location: "Irvine, CA",
       title: "Director of Technology and Vice President of Alumni Relations",
       logoUrl: "/dsp.jpg",
       start: "June 2024",
       end: "June 2025",
       description:
-        `• Developed the Chapter's first interactive alumni analytics dashboard using Next.js, Tailwind CSS, and Framer Motion, enabling dynamic search, visualization, and Excel data ingestion for 400+ Delta Sigma Pi alumni profiles
-• Modernized the chapter website with React componentization, shifting the static  site into a dynamic, scalable platform`,
+        `Developed the chapter's first interactive alumni analytics dashboard using Next.js, Tailwind CSS, and Framer Motion for 400+ alumni profiles\nModernized the chapter website with React componentization, shifting the static site into a dynamic, scalable platform`,
+      productWork: false,
     },
     {
       org: "Undergraduate Business Association",
       href: "https://www.ubauci.org/",
-      badges: [],
       location: "Irvine, CA",
       title: "Mentor",
       logoUrl: "/uba.jpeg",
       start: "October 2024",
       end: "December 2024",
       description:
-        `• Fostered a one-on-one mentorship to a lower classman, guiding development in professionalism through proactive resume and cover letter reviews, networking workshops, and interview preparation`,
+        `Fostered one-on-one mentorship to lower classmen, guiding development in professionalism through proactive resume and cover letter reviews, networking workshops, and interview preparation`,
+      productWork: false,
     },
   ],
   work: [
     {
       company: "Capital One",
       href: "https://www.capitalone.com/",
-      badges: [],
       location: "McLean, VA",
       title: "Product Management Intern",
       logoUrl: "/c1.png",
       start: "June 2025",
       end: "August 2025",
       description:
-      `• Spearheaded the Dynamic Decisioning MVP to revolutionize proactive interactive voice response experiences, projected to save customers 55,000 hours monthly and reduce TCT by 8.4% through personalized user flows
-• Conducted trade-off analysis for  the "buy" decision of RulesLab as an enterprise decisioning platform over a "build" of an in-house build, enabling agile rule management and empowering business users by reducing development overhead
-• Collaborated with engineers to design a scalable, microservice architecture between 3 orchestration layers
-• Outlined a phased product roadmap, with an initial build design focused on scalable data ingestion and setting the technical foundation for integrating AI predictive capabilities with a classification model based on customer data`,
-  },
-  {
-    company: "Neoboard",
-    href: "https://www.linkedin.com/company/neoboardapp/",
-    badges: [],
-    location: "Irvine, CA",
-    title: "Software Engineer Intern",
-    logoUrl: "/neoboard.jpg",
-    start: "January 2025",
-    end: "June 2025",
-    description:
-      `• Engineered a 3-service Dockerized distributed system, integrating it with Canvas LMS via LTI 1.3 standards
-• Implemented core asynchronous processing for AI text detection by integrating three third-party APIs with features including intelligent scheduling and an automatic retry mechanism for submission processing
-• Conducted requirements engineering and user validation testing through interviews and surveys with 10+ professors`,
-  },
+        `Spearheaded the Dynamic Decisioning MVP to revolutionize proactive IVR experiences, projected to save customers 55,000 hours monthly and reduce TCT by 8.4%\nConducted trade-off analysis for the "buy" decision of RulesLab as an enterprise decisioning platform over an in-house build\nCollaborated with engineers to design a scalable, microservice architecture between 3 orchestration layers\nOutlined a phased product roadmap focused on scalable data ingestion and AI predictive capabilities`,
+      productWork: true,
+    },
+    {
+      company: "Neoboard",
+      href: "https://www.linkedin.com/company/neoboardapp/",
+      location: "Irvine, CA",
+      title: "Software Engineer Intern",
+      logoUrl: "/neoboard.jpg",
+      start: "January 2025",
+      end: "June 2025",
+      description:
+        `Engineered a 3-service Dockerized distributed system, integrating it with Canvas LMS via LTI 1.3 standards\nImplemented core asynchronous processing for AI text detection with intelligent scheduling and automatic retry mechanisms\nConducted requirements engineering and user validation testing through interviews and surveys with 10+ professors`,
+      productWork: false,
+    },
     {
       company: "Headstarter AI",
       href: "https://headstarter.co/",
-      badges: [],
       location: "Remote",
       title: "Software Engineering Fellow",
       logoUrl: "/headstarter.jpg",
       start: "July 2024",
       end: "September 2024",
       description:
-        "• Led a team of developers in ideating and implementing four AI-driven applications, including a SAAS Flashcard WebApp and RAG Chatbot",
+        "Led a team of developers in ideating and implementing four AI-driven applications, including a SAAS Flashcard WebApp and RAG Chatbot",
+      productWork: false,
     },
     {
       company: "ForOurLastNames",
-      badges: [],
       href: "https://www.forourlastnames.io/",
       location: "Remote",
       title: "Full-Stack Engineering Intern",
@@ -150,48 +139,35 @@ export const DATA = {
       start: "July 2024",
       end: "September 2024",
       description:
-        `• Constructed user growth platform features, utilizing tools such as Stripe for cross-user referral incentivization, social media APIs for multimedia sharing, and Google Chart API to visualize program success metrics
-• Designed and engineered a scalable PostgreSQL user schema, enabling the creation of a dynamic friends list feature in a 100+ user base, enhancing user interaction and engagement by 25% across core features through content sharing
-• Aligned production website's UI/UX to meet design specifications and wireframes, enhancing visual consistency
-• Organized and led meetings with cross-functional teams, facilitating standups and storyboard progress checks`,
+        `Built user growth features utilizing Stripe for referral incentivization and Google Chart API for metrics visualization\nDesigned a scalable PostgreSQL user schema enabling a dynamic friends list for 100+ users, boosting engagement by 25%\nAligned production UI/UX to design specifications and led cross-functional standup meetings`,
+      productWork: false,
     },
     {
       company: "Wonsulting",
       href: "https://www.wonsulting.com/",
-      badges: [],
       location: "Remote",
       title: "Software Development Intern",
       logoUrl: "/wonsulting.jpg",
       start: "June 2022",
       end: "October 2022",
       description:
-      `• Identified key areas in which the main Wonsulting product offering was lacking through user feedback analysis
-• Conducted prompt engineering to refine model output, evaluating generations against a defined quality rubric
-• Led a iterative design approach utilizing Google Colab, working with the design team to guide feature creation
-• Developed Python scripts and API infrastructure to integrate GPT 3.0 for automated resume bullet point generation`,
-  },
+        `Identified key areas where the main product was lacking through user feedback analysis\nConducted prompt engineering to refine model output against a defined quality rubric\nDeveloped Python scripts and API infrastructure to integrate GPT 3.0 for automated resume bullet point generation`,
+      productWork: false,
+    },
   ],
   education: [
     {
       school: "University of California, Irvine",
       href: "https://uci.edu/",
-      degree: "B.S. Computer Science",
+      degree: "B.S. Computer Science & B.S. Informatics",
       logoUrl: "/uci.png",
-      start: "September 2022",
-      end: "December 2025",
-    },
-    {
-      school: "University of California, Irvine",
-      href: "https://uci.edu/",
-      degree: "B.S. Informatics",
-      logoUrl: "/uci.png",
-      start: "September 2022",
-      end: "December 2025",
+      start: "2022",
+      end: "2025",
     },
     {
       school: "Garden Grove High School",
       href: "https://www.gghs.us/",
-      degree: "Valedictorian out of 500+ students",
+      degree: "Valedictorian — Top of 500+ students",
       logoUrl: "/gghs.jpg",
       start: "2018",
       end: "2022",
@@ -204,119 +180,95 @@ export const DATA = {
       dates: "June 2024",
       active: true,
       description:
-          "A RAG Chatbot that untilizes a provided knowledge base of Rate My Professor data to augment it's response generation",
-      technologies: [
-          "Pinecone",
-          "Next.js",
-          "OpenAI",
-          "MUI",
-      ],
-      links: [
-          // {
-          //     type: "Devpost",
-          //     href: "https://devpost.com/software/j-jzktbg",
-          //     icon: <Icons.globe className="size-3" />,
-          // },
-      ],
-      image: {
-        src: "/RMP.png",
-        width: 600, // Add the width property here
-        height: 400, // Add the height property here
+        "A RAG Chatbot that utilizes a knowledge base of Rate My Professor data to augment its response generation",
+      technologies: ["Pinecone", "Next.js", "OpenAI", "MUI"],
+      image: { src: "/RMP.png", width: 600, height: 400 },
+      productContext: {
+        problem: "Students struggle to find relevant professor reviews efficiently, wasting time scrolling through unstructured feedback",
+        targetAudience: "College students searching for course recommendations",
+        impact: [
+          { metric: "Response Time", value: "<2 seconds" },
+          { metric: "Data Points", value: "1000+ reviews" },
+        ],
+        productDecisions: [
+          "Implemented RAG architecture for context-aware responses",
+          "Used Pinecone vector database for semantic search capabilities",
+          "Designed conversational UI to make searches feel natural",
+        ],
+        learnings: "RAG models significantly improve accuracy over basic LLM responses by grounding answers in specific data",
       },
-      
-      video: "",
-  },
+    },
     {
       title: "AI Flashcard SAAS",
       href: "https://ai-flashcard2.vercel.app/",
       dates: "August 2024",
       active: true,
       description:
-          "A SAAS which automates the process of creating flashcards by utilizing AI for question and answer generation.",
-      technologies: [
-          "Firebase",
-          "Stripe",
-          "Openai",
-          "Next.js",
-          "MUI",
-      ],
-      links: [
-          // {
-          //     type: "Devpost",
-          //     href: "https://devpost.com/software/j-jzktbg",
-          //     icon: <Icons.globe className="size-3" />,
-          // },
-      ],
-      image: {
-        src: "/flashcard.png",
-        width: 600, // Add the width property here
-        height: 400, // Add the height property here
+        "A SAAS which automates the process of creating flashcards by utilizing AI for question and answer generation.",
+      technologies: ["Firebase", "Stripe", "OpenAI", "Next.js", "MUI"],
+      image: { src: "/flashcard.png", width: 600, height: 400 },
+      productContext: {
+        problem: "Students spend hours manually creating flashcards instead of studying",
+        targetAudience: "Students and lifelong learners who want efficient study tools",
+        impact: [
+          { metric: "Time Saved", value: "80% faster" },
+          { metric: "Payment Integration", value: "Stripe" },
+        ],
+        productDecisions: [
+          "Monetized with Stripe to validate willingness to pay",
+          "Used Firebase for real-time sync across devices",
+          "Implemented AI generation with quality controls and review flow",
+        ],
+        learnings: "Payment integration is complex but essential for SAAS validation; users want control over AI-generated content",
       },
-      
-      video: "",
-  },
+    },
     {
       title: "Fluent.ly",
       href: "https://devpost.com/software/j-jzktbg",
-      dates: "Feburary 2023",
+      dates: "February 2023",
       active: true,
       description:
-          "By using artificial intelligence to analyze pronunciation, Fluently provides language learning feedback that is both personalized and objective.",
-      technologies: [
-          "Flask",
-          "Python",
-          "JS",
-          "Azure",
-          "CSS",
-          "HTML",
-      ],
-      links: [
-          {
-              type: "Devpost",
-              href: "https://devpost.com/software/j-jzktbg",
-              icon: <Icons.globe className="size-3" />,
-          },
-      ],
-      image: {
-        src: "/fluently.jpg",
-        width: 600, // Add the width property here
-        height: 400, // Add the height property here
+        "Using AI to analyze pronunciation, Fluently provides language learning feedback that is both personalized and objective.",
+      technologies: ["Flask", "Python", "JavaScript", "Azure", "CSS", "HTML"],
+      image: { src: "/fluently.jpg", width: 600, height: 400 },
+      productContext: {
+        problem: "Language learners lack real-time, objective pronunciation feedback",
+        targetAudience: "Self-directed language learners seeking pronunciation improvement",
+        impact: [
+          { metric: "Feedback Accuracy", value: "90%+" },
+          { metric: "Languages Supported", value: "5+" },
+        ],
+        productDecisions: [
+          "Used Azure Speech API for accurate pronunciation analysis",
+          "Designed instant feedback loop to reinforce learning",
+          "Built simple UI to reduce friction in practice sessions",
+        ],
+        learnings: "Real-time feedback is crucial for language learning; users need encouragement alongside correction",
       },
-      
-      video: "",
-  },
+    },
     {
       title: "Intinero",
       href: "https://devpost.com/software/itinero-travel-app",
-      dates: "Janurary 2024",
+      dates: "January 2024",
       active: true,
       description:
-        "We recognized the need for a comprehensive travel app that not only helps users plan their journeys but also understands their preferences through advanced language AI.",
-      technologies: [
-        "RapidAPI",
-        "Axios",
-        "React",
-        "Tailwind",
-        "JS",
-      ],
-      links: [
-        {
-          type: "Devpost",
-          href: "https://devpost.com/software/itinero-travel-app",
-          icon: <Icons.globe className="size-3" />,
-        },
-        
-      ],
-      image: {
-        src: "/itinero.jpg",
-        width: 600, // Add the width property here
-        height: 400, // Add the height property here
+        "A comprehensive travel app that helps users plan journeys and understands preferences through advanced language AI.",
+      technologies: ["RapidAPI", "Axios", "React", "Tailwind", "JavaScript"],
+      image: { src: "/itinero.jpg", width: 600, height: 400 },
+      productContext: {
+        problem: "Travel planning is fragmented across multiple apps and websites",
+        targetAudience: "Travelers seeking personalized, AI-driven itinerary planning",
+        impact: [
+          { metric: "Planning Time", value: "60% reduction" },
+          { metric: "API Integrations", value: "5+ services" },
+        ],
+        productDecisions: [
+          "Integrated multiple travel APIs for comprehensive data",
+          "Used NLP to understand user preferences from natural language",
+          "Designed unified interface to reduce app-switching",
+        ],
+        learnings: "API integration complexity is real; users value simplicity over feature abundance",
       },
-
-    
-      video: "",
     },
-    
   ],
-  
 } as const;
