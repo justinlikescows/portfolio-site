@@ -167,8 +167,8 @@ export function EngineeringToProduct() {
       >
         <p className="text-lg font-serif mb-2">Today: Technical PM Who Ships</p>
         <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-          I don't just write PRDs — I understand the system architecture behind them. 
-          I don't just gather requirements — I can prototype them. 
+          I don&apos;t just write PRDs — I understand the system architecture behind them. 
+          I don&apos;t just gather requirements — I can prototype them. 
           My engineering roots make me a partner to developers, not a blocker.
         </p>
       </motion.div>
