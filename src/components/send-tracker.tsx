@@ -11,18 +11,16 @@ interface ClimbingGrade {
 }
 
 const sendHistory: ClimbingGrade[] = [
-  { grade: "V0", color: "#90EE90", year: "2021", location: "Hangar 18" },
-  { grade: "V1", color: "#90EE90", year: "2021" },
-  { grade: "V2", color: "#FFD700", year: "2022", location: "Sender One" },
-  { grade: "V3", color: "#FFD700", year: "2022" },
-  { grade: "V4", color: "#FFA500", year: "2023", location: "Joshua Tree" },
-  { grade: "V5", color: "#FF6347", year: "2023" },
-  { grade: "V6", color: "#FF4500", year: "2024", location: "Bishop" },
-  { grade: "V7", color: "#DC143C", year: "2024" },
-  { grade: "V8", color: "#B22222", year: "2025", location: "Red Rock Canyon" },
-  { grade: "V9", color: "#8B0000", year: "2025" },
-  { grade: "V10", color: "#4B0082", year: "2026", location: "Hueco Tanks" },
-  { grade: "V11", color: "#2E0854", year: "2026" },
+  { grade: "V0", color: "#90EE90", year: "2023", location: "Hangar 18" },
+  { grade: "V1", color: "#90EE90", year: "2023", location: "Hangar 18" },
+  { grade: "V2", color: "#FFD700", year: "2023", location: "Hangar 18" },
+  { grade: "V2", color: "#FFD700", year: "2024", location: "Hangar 18" },
+  { grade: "V3", color: "#FFD700", year: "2024", location: "Hangar 18" },
+  { grade: "V3", color: "#FFD700", year: "2023", location: "Hangar 18" },
+  { grade: "V4", color: "#FFA500", year: "2024", location: "Hangar 18" },
+  { grade: "V4", color: "#FFA500", year: "2023", location: "Hangar 18" },
+  { grade: "V4", color: "#FFA500", year: "2023", location: "Hangar 18" },
+  { grade: "V5", color: "#FF6347", year: "2024", location: "Hangar 18" },
 ];
 
 export function SendTracker() {

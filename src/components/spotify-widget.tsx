@@ -2,18 +2,47 @@
 
 import { motion } from "framer-motion";
 import { Music } from "lucide-react";
+import { useEffect, useState } from "react";
 
-interface SpotifyWidgetProps {
-  track?: string;
-  artist?: string;
-  isPlaying?: boolean;
+interface SpotifyData {
+  isPlaying: boolean;
+  title: string;
+  artist: string;
+  songUrl: string;
 }
 
-export function SpotifyWidget({ 
-  track = "Currently Offline", 
-  artist = "No track playing",
-  isPlaying = false 
-}: SpotifyWidgetProps) {
+export function SpotifyWidget() {
+  const [spotify, setSpotify] = useState<SpotifyData>({
+    isPlaying: false,
+    title: "Loading...",
+    artist: "Fetching data",
+    songUrl: "https://open.spotify.com",
+  });
+
+  useEffect(() => {
+    const fetchNowPlaying = async () => {
+      try {
+        const response = await fetch("/api/spotify/now-playing");
+        const data = await response.json();
+        setSpotify(data);
+      } catch (error) {
+        console.error("Error fetching Spotify data:", error);
+        setSpotify({
+          isPlaying: false,
+          title: "Error loading",
+          artist: "Check console",
+          songUrl: "https://open.spotify.com",
+        });
+      }
+    };
+
+    fetchNowPlaying();
+    const interval = setInterval(fetchNowPlaying, 30000); // Update every 30 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const { isPlaying, title, artist, songUrl } = spotify;
   return (
     <motion.div
       className="bg-gradient-to-br from-[#2A2A2A] to-[#1A1A1A] rounded-lg p-4 shadow-lg border border-[#3A3A3A] max-w-xs"
@@ -26,9 +55,9 @@ export function SpotifyWidget({
       <div className="relative bg-gradient-to-b from-[#4A4A4A] to-[#2A2A2A] rounded p-3 mb-3">
         {/* Top label area */}
         <div className="bg-cream/90 rounded-sm p-2 mb-2 h-12 flex items-center justify-center">
-          <div className="text-center">
+          <div className="text-center w-full px-1">
             <p className="font-mono text-[10px] text-ink font-bold uppercase truncate">
-              {track}
+              {title}
             </p>
             <p className="font-mono text-[8px] text-ink/60 truncate">{artist}</p>
           </div>
@@ -120,12 +149,12 @@ export function SpotifyWidget({
 
       {/* Link to Spotify */}
       <a
-        href="https://open.spotify.com/"
+        href={songUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="block mt-2 text-center text-[10px] text-olive/60 hover:text-olive transition-colors font-mono"
       >
-        SPOTIFY
+        {isPlaying ? "OPEN IN SPOTIFY" : "VIEW ON SPOTIFY"}
       </a>
     </motion.div>
   );
