@@ -29,15 +29,15 @@ const fontMono = Roboto_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(DATA.url),
   title: {
-    default: DATA.name,
-    template: `%s | ${DATA.name}`,
+    default: DATA.siteTitle,
+    template: `%s | ${DATA.siteTitle}`,
   },
   description: DATA.description,
   openGraph: {
-    title: `${DATA.name}`,
+    title: DATA.siteTitle,
     description: DATA.description,
     url: DATA.url,
-    siteName: `${DATA.name}`,
+    siteName: DATA.siteTitle,
     locale: "en_US",
     type: "website",
   },
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: `${DATA.name}`,
+    title: DATA.siteTitle,
     card: "summary_large_image",
   },
 };

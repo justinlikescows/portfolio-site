@@ -2,6 +2,7 @@ import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon, PencilLine } from "lucide-react";
 
 export const DATA = {
+  siteTitle: "Justin's Portfolio",
   name: "Justin Pham",
   initials: "JP",
   url: "https://justinpham.dev",
@@ -10,7 +11,7 @@ export const DATA = {
   description:
     "Product Manager who builds AI-powered products. I love taking creative ideas and turning them into reality through user research, data-driven decisions, and technical execution.",
   summary:
-    "I'm at the intersection of product and engineering. After building features as a software engineer at Wonsulting, FOLN, and Neoboard, I discovered my passion for the 'why' behind what we build. This led me to product management — where I can combine technical depth with user empathy to solve real problems.\n\nMost recently, I spent my summer at Capital One designing an AI-powered IVR system projected to save customers 55,000 hours monthly. Before that, I led Unibites through a 10-week incubator, taking it from idea to MVP with 100+ user reviews.\n\nI'm drawn to products at the intersection of AI and user experience. When I'm not thinking about product strategy, you'll find me traveling, bouldering, or hunting for the perfect cup of coffee.",
+    "I'm a recent graduate from UC Irvine with a B.S. in Computer Science and Informatics, where I specialized in AI and Organization and Information Technology. I love to work at the intersection of product and engineering. After building features as a software engineer at Wonsulting, FOLN, and Neoboard, I discovered my passion for the 'why' behind what we build. This led me to product management — where I can combine technical depth with user empathy to solve real problems.\n\nMost recently, I spent my summer at Capital One designing an AI-powered IVR system projected to save customers 55,000 hours monthly. Before that, I led Unibites through a 10-week incubator, taking it from idea to MVP with 100+ user reviews.\n\nI'm drawn to products at the intersection of AI and user experience. When I'm not thinking about product strategy, you'll find me traveling, bouldering, or hunting for the perfect cup of coffee.",
   avatarUrl: {
     one: "/me.jpg",
     two: "/me2.PNG",
@@ -107,7 +108,11 @@ export const DATA = {
       start: "June 2025",
       end: "August 2025",
       description:
-        `Spearheaded the Dynamic Decisioning MVP to revolutionize proactive IVR experiences, projected to save customers 55,000 hours monthly and reduce TCT by 8.4%\nConducted trade-off analysis for the "buy" decision of RulesLab as an enterprise decisioning platform over an in-house build\nCollaborated with engineers to design a scalable, microservice architecture between 3 orchestration layers\nOutlined a phased product roadmap focused on scalable data ingestion and AI predictive capabilities`,
+        `Spearheaded the Dynamic Decisioning MVP to revolutionize proactive interactive voice response experiences, projected to save customers 55,000 hours monthly and reduce TCT by 8.4% through personalized user flows
+Conducted trade-off analysis for  the “buy” decision of RulesLab as an enterprise decisioning platform over a “build” of an in-house build, enabling agile rule management and empowering business users by reducing development overhead
+Collaborated with engineers to design a scalable, microservice architecture between 3 orchestration layers
+Outlined a phased product roadmap, with an initial build design focused on scalable data ingestion and setting the technical foundation for integrating AI predictive capabilities with a classification model based on customer data
+`,
       productWork: true,
     },
     {
@@ -119,7 +124,10 @@ export const DATA = {
       start: "January 2025",
       end: "June 2025",
       description:
-        `Engineered a 3-service Dockerized distributed system, integrating it with Canvas LMS via LTI 1.3 standards\nImplemented core asynchronous processing for AI text detection with intelligent scheduling and automatic retry mechanisms\nConducted requirements engineering and user validation testing through interviews and surveys with 10+ professors`,
+        `Engineered a 3-service Dockerized distributed system, integrating it with Canvas LMS via LTI 1.3 standards
+Implemented core asynchronous processing for AI text detection by integrating three third-party APIs with features including intelligent scheduling and an automatic retry mechanism for submission processing
+Conducted requirements engineering and user validation testing through interviews and surveys with 10+ professors
+`,
       productWork: false,
     },
     {
@@ -143,7 +151,12 @@ export const DATA = {
       start: "July 2024",
       end: "September 2024",
       description:
-        `Built user growth features utilizing Stripe for referral incentivization and Google Chart API for metrics visualization\nDesigned a scalable PostgreSQL user schema enabling a dynamic friends list for 100+ users, boosting engagement by 25%\nAligned production UI/UX to design specifications and led cross-functional standup meetings`,
+        `Constructed user growth platform features, utilizing tools such as Stripe for cross-user referral incentivization, social media APIs for multimedia sharing, and Google Chart API to visualize program success metrics
+Designed and engineered a scalable PostgreSQL user schema, enabling the creation of a dynamic friends list feature in a 100+ user base, enhancing user interaction and engagement by 25% across core features through content sharing
+Aligned production website’s UI/UX to meet design specifications and wireframes, enhancing visual consistency
+Organized and led meetings with cross-functional teams, facilitating standups and storyboard progress checks
+
+`,
       productWork: false,
     },
     {
@@ -155,7 +168,12 @@ export const DATA = {
       start: "June 2022",
       end: "October 2022",
       description:
-        `Identified key areas where the main product was lacking through user feedback analysis\nConducted prompt engineering to refine model output against a defined quality rubric\nDeveloped Python scripts and API infrastructure to integrate GPT 3.0 for automated resume bullet point generation`,
+        `Identified key areas in which the main Wonsulting product offering was lacking through user feedback analysis
+Conducted prompt engineering to refine model output, evaluating generations against a defined quality rubric
+Led a iterative design approach utilizing Google Colab, working with the design team to guide feature creation
+Developed Python scripts and API infrastructure to integrate GPT 3.0 for automated resume bullet point generation
+
+`,
       productWork: false,
     },
   ],
@@ -178,6 +196,77 @@ export const DATA = {
     },
   ],
   projects: [
+    {
+      title: "Scoutify",
+      href: "scoutify.dev",
+      dates: "Present",
+      active: true,
+      description:
+        "A lead intelligence platform that identifies high-opportunity local businesses by analyzing online presence gaps (e.g., missing websites, weak SEO, low digital engagement)",
+      technologies: ["Next.js", "TypeScript", "API Integration"],
+      image: { src: "/scoutify.png", width: 600, height: 400 },
+      productContext: {
+        problem: "Agencies and consultants waste hours manually researching potential clients with digital presence gaps",
+        targetAudience: "Growth-enablement agencies and independent consultants seeking high-value leads",
+        impact: [
+          { metric: "Lead Quality", value: "High-opportunity" },
+          { metric: "Research Time", value: "Automated" },
+        ],
+        productDecisions: [
+          "Defined product strategy focused on online presence gap analysis",
+          "Designed monetization model targeting B2B consultants and agencies",
+          "Built lead scoring system based on digital maturity indicators",
+        ],
+        learnings: "Positioning as a growth-enablement tool rather than just lead gen increases perceived value and justifies premium pricing",
+      },
+    },
+    {
+      title: "Dissect AI",
+      href: "",
+      dates: "August 2024",
+      active: true,
+      description:
+        "AI-powered audio and data analysis platform enabling precise transcription, semantic insights, and real-time feedback through advanced ML models and cloud-based processing pipelines",
+      technologies: ["Python", "Machine Learning", "Cloud Services", "Audio Processing"],
+      image: { src: "/dissect.png", width: 600, height: 400 },
+      productContext: {
+        problem: "Users need accurate audio transcription with contextual understanding and actionable insights",
+        targetAudience: "Content creators, researchers, and professionals analyzing audio data",
+        impact: [
+          { metric: "Transcription Accuracy", value: "High precision" },
+          { metric: "Processing Speed", value: "Real-time" },
+        ],
+        productDecisions: [
+          "Built cloud-based processing pipeline for scalable performance",
+          "Balanced model accuracy, latency, and UX through iterative optimization",
+        ],
+        learnings: "Technical product strategy requires constant trade-offs between accuracy, speed, and cost — user feedback drives prioritization",
+      },
+    },
+    {
+      title: "Art Farm Labs",
+      href: "",
+      dates: "June 2024",
+      active: true,
+      description:
+        "E-commerce platform tailored to parent-child user hierarchy, utilizing Shopify API and Next.js for real-time GraphQL calls with integrated Sanity CMS",
+      technologies: ["Next.js", "Shopify API", "GraphQL", "Sanity CMS"],
+      image: { src: "/artfarm.png", width: 600, height: 400 },
+      productContext: {
+        problem: "Parent-child art education businesses need specialized e-commerce with hierarchical user management",
+        targetAudience: "Art education businesses managing parent and student accounts",
+        impact: [
+          { metric: "Frontend Edit Time", value: "50% reduction" },
+          { metric: "User Hierarchy", value: "Parent-child model" },
+        ],
+        productDecisions: [
+          "Led Agile ceremonies to coordinate development across capstone team",
+          "Integrated Sanity CMS for server-side components to reduce iteration time",
+          "Used Shopify API with GraphQL for real-time e-commerce functionality",
+        ],
+        learnings: "CMS integration dramatically reduces content update friction; proper user hierarchy design is critical for educational platforms",
+      },
+    },
     {
       title: "Rate My Professor Chatbot",
       href: "https://rate-my-professor-ai-blue.vercel.app/",

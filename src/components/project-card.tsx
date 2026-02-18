@@ -35,20 +35,23 @@ export function ProjectCard({
   index,
 }: ProjectCardProps) {
   const [expanded, setExpanded] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const rotation = index % 2 === 0 ? -1.5 : 1.5;
 
   return (
     <>
       <motion.div
-        className="cursor-pointer group"
+        className="cursor-pointer group relative"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-40px" }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
         onClick={() => setExpanded(true)}
+        onHoverStart={() => setIsHovered(true)}
+        onHoverEnd={() => setIsHovered(false)}
       >
         <div
-          className="bg-white dark:bg-[hsl(30,15%,14%)] p-3 pb-6 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-[1.02]"
+          className="bg-white dark:bg-[hsl(30,15%,14%)] p-3 pb-6 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-[1.02] relative"
           style={{ transform: `rotate(${rotation}deg)` }}
         >
           {image && (
@@ -57,8 +60,39 @@ export function ProjectCard({
                 src={image.src}
                 alt={title}
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
+              {/* Metrics Overlay on Hover */}
+              <AnimatePresence>
+                {isHovered && productContext && productContext.impact.length > 0 && (
+                  <motion.div
+                    className="absolute inset-0 bg-ink/90 backdrop-blur-sm flex items-center justify-center p-4"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="grid grid-cols-2 gap-3 w-full">
+                      {productContext.impact.map((item, i) => (
+                        <motion.div
+                          key={i}
+                          className="text-center"
+                          initial={{ scale: 0.8, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          transition={{ delay: i * 0.1, duration: 0.3 }}
+                        >
+                          <div className="text-2xl font-serif text-warmred mb-1">
+                            {item.value}
+                          </div>
+                          <div className="text-xs text-white/80">
+                            {item.metric}
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           )}
           <div className="mt-3 px-1">
@@ -78,6 +112,17 @@ export function ProjectCard({
               ))}
             </div>
           </div>
+          
+          {/* "Click for case study" hint */}
+          {productContext && (
+            <motion.div
+              className="absolute bottom-2 right-2 text-xs font-hand text-warmred opacity-0 group-hover:opacity-100 transition-opacity"
+              initial={{ y: 5 }}
+              animate={{ y: 0 }}
+            >
+              click for case study →
+            </motion.div>
+          )}
         </div>
       </motion.div>
 

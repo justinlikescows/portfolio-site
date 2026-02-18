@@ -31,6 +31,8 @@ import { SendTracker } from "@/components/send-tracker";
 import { MarginNote, InlineAnnotation } from "@/components/margin-note";
 import { SpotifyWidget } from "@/components/spotify-widget";
 import { TrailMapNav } from "@/components/trail-map-nav";
+import { EngineeringToProduct } from "@/components/engineering-to-product";
+import { ProductPhilosophy } from "@/components/product-philosophy";
 import { useParallaxScroll } from "@/hooks/use-parallax-scroll";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -257,6 +259,9 @@ export default function Page() {
           </div>
         </section>
 
+        {/* ============ ENGINEERING TO PRODUCT JOURNEY ============ */}
+        <EngineeringToProduct />
+
         {/* ============ EXPERIENCE ============ */}
         <section id="experience" className="py-16 md:py-24 relative">
           <motion.div {...stampIn}>
@@ -334,12 +339,15 @@ export default function Page() {
           </div>
         </section>
 
+        {/* ============ PRODUCT PHILOSOPHY ============ */}
+        <ProductPhilosophy />
+
         {/* ============ PROJECTS ============ */}
         <section id="projects" className="py-16 md:py-24 relative">
           <motion.div {...stampIn}>
             <SectionHeading
               title="Projects"
-              subtitle="Case studies from things I've built — click to dig into the product thinking."
+              subtitle="Case studies from things I've built — hover for metrics, click to dig into the product thinking."
               annotation="builds"
             />
           </motion.div>
