@@ -39,90 +39,129 @@ export function BrewTimer({ duration = 3, onComplete }: BrewTimerProps) {
       transition={{ duration: 0.5 }}
     >
       <div className="flex flex-col items-center gap-4">
-        {/* Pour over coffee dripper */}
+        {/* Phin coffee dripper */}
         <svg
           width="120"
-          height="140"
-          viewBox="0 0 120 140"
+          height="160"
+          viewBox="0 0 120 160"
           fill="none"
           className="text-coffee"
         >
-          {/* Dripper */}
+          {/* Dripper/Phin cone */}
           <path
-            d="M30 20 L90 20 L75 80 L45 80 Z"
+            d="M30 18 L90 18 L75 78 L45 78 Z"
             stroke="currentColor"
-            strokeWidth="3"
+            strokeWidth="2.5"
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           
-          {/* Water level - animates based on progress */}
-          <motion.rect
-            x="35"
-            y={20 + (60 * (100 - progress) / 100)}
-            width="50"
-            height={60 * progress / 100}
-            fill="currentColor"
-            opacity="0.3"
-            initial={{ height: 0 }}
-            animate={{ height: 60 * progress / 100 }}
+          {/* Dripper rim */}
+          <ellipse
+            cx="60"
+            cy="18"
+            rx="30"
+            ry="5"
+            stroke="currentColor"
+            strokeWidth="2"
+            fill="none"
           />
 
           {/* Drip lines */}
-          <g opacity={progress > 20 ? 0.6 : 0}>
+          <g opacity={progress > 10 ? 0.6 : 0}>
             <motion.line
-              x1="55"
-              y1="80"
-              x2="55"
+              x1="60"
+              y1="78"
+              x2="60"
               y2="95"
               stroke="currentColor"
               strokeWidth="2"
               strokeLinecap="round"
-              animate={{ y2: [80, 95], opacity: [0, 1, 0] }}
-              transition={{ duration: 0.8, repeat: Infinity, repeatDelay: 0.2 }}
+              animate={{ y2: [78, 98], opacity: [0, 1, 0] }}
+              transition={{ duration: 0.6, repeat: Infinity, repeatDelay: 0.3 }}
             />
-            <motion.line
-              x1="65"
-              y1="80"
-              x2="65"
-              y2="95"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              animate={{ y2: [80, 95], opacity: [0, 1, 0] }}
-              transition={{ duration: 0.8, repeat: Infinity, delay: 0.3, repeatDelay: 0.2 }}
+            <motion.circle
+              cx="60"
+              r="2"
+              fill="currentColor"
+              initial={{ cy: 80, opacity: 0 }}
+              animate={{ cy: [80, 100], opacity: [0, 0.8, 0] }}
+              transition={{ duration: 0.7, repeat: Infinity, repeatDelay: 0.4, delay: 0.2 }}
             />
           </g>
 
-          {/* Cup base */}
+          {/* Cup - proper mug shape */}
+          <path
+            d="M35 105 
+               C35 105, 33 140, 40 145 
+               L80 145 
+               C87 140, 85 105, 85 105"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          
+          {/* Cup rim */}
           <ellipse
             cx="60"
-            cy="120"
+            cy="105"
             rx="25"
-            ry="8"
+            ry="6"
             stroke="currentColor"
             strokeWidth="2"
             fill="none"
           />
+          
+          {/* Cup handle */}
           <path
-            d="M35 120 L40 100 L80 100 L85 120"
+            d="M85 112 
+               C95 112, 98 125, 95 132
+               C92 139, 85 138, 85 135"
             stroke="currentColor"
             strokeWidth="2"
             fill="none"
+            strokeLinecap="round"
           />
 
           {/* Coffee in cup - fills based on progress */}
-          <motion.ellipse
-            cx="60"
-            cy={120 - (progress / 100 * 15)}
-            rx="20"
-            ry="6"
+          <defs>
+            <clipPath id="cupClip">
+              <path d="M36 108 C36 108, 34 139, 40.5 144 L79.5 144 C86 139, 84 108, 84 108 Z" />
+            </clipPath>
+          </defs>
+          
+          <motion.rect
+            x="33"
+            width="54"
             fill="currentColor"
             opacity="0.4"
-            initial={{ ry: 0 }}
-            animate={{ ry: progress > 20 ? 6 : 0 }}
+            clipPath="url(#cupClip)"
+            initial={{ y: 144, height: 0 }}
+            animate={{ 
+              y: Math.max(108, 144 - (36 * progress / 100)),
+              height: Math.min(36, 36 * progress / 100)
+            }}
+            transition={{ duration: 0.1 }}
           />
+          
+          {/* Coffee surface ellipse in cup */}
+          {progress > 10 && (
+            <motion.ellipse
+              cx="60"
+              rx="23"
+              fill="currentColor"
+              opacity="0.5"
+              initial={{ cy: 144, ry: 0 }}
+              animate={{ 
+                cy: Math.max(108, 144 - (36 * progress / 100)),
+                ry: progress > 10 ? 5 : 0
+              }}
+              transition={{ duration: 0.1 }}
+            />
+          )}
         </svg>
 
         {/* Text */}
