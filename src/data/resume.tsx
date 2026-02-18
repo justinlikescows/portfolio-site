@@ -11,7 +11,11 @@ export const DATA = {
     "Product Manager who builds AI-powered products. I love taking creative ideas and turning them into reality through user research, data-driven decisions, and technical execution.",
   summary:
     "I'm at the intersection of product and engineering. After building features as a software engineer at Wonsulting, FOLN, and Neoboard, I discovered my passion for the 'why' behind what we build. This led me to product management — where I can combine technical depth with user empathy to solve real problems.\n\nMost recently, I spent my summer at Capital One designing an AI-powered IVR system projected to save customers 55,000 hours monthly. Before that, I led Unibites through a 10-week incubator, taking it from idea to MVP with 100+ user reviews.\n\nI'm drawn to products at the intersection of AI and user experience. When I'm not thinking about product strategy, you'll find me traveling, bouldering, or hunting for the perfect cup of coffee.",
-  avatarUrl: "/me.jpg",
+  avatarUrl: {
+    one: "/me.jpg",
+    two: "/me2.PNG",
+    three: "/me3.png",
+  },
   skills: [
     "React",
     "Next.js",

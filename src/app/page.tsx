@@ -126,7 +126,7 @@ export default function Page() {
                 <div className="flex flex-wrap gap-2 pt-1">
                   <StickerBadge index={0}>Product Manager</StickerBadge>
                   <StickerBadge index={1}>Builder</StickerBadge>
-                  <StickerBadge index={2}>Human</StickerBadge>
+                  <StickerBadge index={2}>Ideator</StickerBadge>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 pt-3">
                   <Link
@@ -146,19 +146,63 @@ export default function Page() {
 
               <motion.div
                 className="shrink-0"
-                initial={{ opacity: 0, rotate: -5 }}
-                animate={{ opacity: 1, rotate: -3 }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <Polaroid
-                  src={DATA.avatarUrl}
-                  alt={DATA.name}
-                  caption="Me in Yosemite 2025"
-                  rotation={-3}
-                  width={280}
-                  height={280}
-                  className="w-[200px] md:w-[280px]"
-                />
+                <div className="flex flex-col gap-6">
+                  {/* Top row - 2 photos */}
+                  <div className="flex gap-6">
+                    <motion.div
+                      initial={{ opacity: 0, rotate: -8 }}
+                      animate={{ opacity: 1, rotate: -5 }}
+                      transition={{ duration: 0.6, delay: 0.4 }}
+                    >
+                      <Polaroid
+                        src={DATA.avatarUrl.one}
+                        alt={DATA.name}
+                        caption="Exploring Yosemite meadows"
+                        rotation={-5}
+                        width={200}
+                        height={200}
+                        className="w-[160px] md:w-[200px]"
+                      />
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, rotate: 8 }}
+                      animate={{ opacity: 1, rotate: 4 }}
+                      transition={{ duration: 0.6, delay: 0.5 }}
+                      className="mt-8"
+                    >
+                      <Polaroid
+                        src={DATA.avatarUrl.two}
+                        alt={DATA.name}
+                        caption="Tapas in Barcelona"
+                        rotation={4}
+                        width={200}
+                        height={200}
+                        className="w-[160px] md:w-[200px]"
+                      />
+                    </motion.div>
+                  </div>
+                  {/* Bottom row - 1 photo centered */}
+                  <motion.div
+                    className="flex justify-center"
+                    initial={{ opacity: 0, rotate: 6 }}
+                    animate={{ opacity: 1, rotate: 2 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                  >
+                    <Polaroid
+                      src={DATA.avatarUrl.three}
+                      alt={DATA.name}
+                      caption="Snowy night in Central Park"
+                      rotation={2}
+                      width={200}
+                      height={200}
+                      className="w-[160px] md:w-[200px]"
+                    />
+                  </motion.div>
+                </div>
               </motion.div>
             </div>
           </div>

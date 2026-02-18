@@ -42,6 +42,8 @@ export function Polaroid({
           alt={alt}
           width={width}
           height={height}
+          unoptimized
+          priority
           className="object-cover w-full h-auto"
         />
       </div>
