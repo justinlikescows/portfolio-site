@@ -349,11 +349,7 @@ export default function Page() {
               </MarginNote>
             </div>
             <div className="flex flex-col justify-center">
-              <SpotifyWidget 
-                track="Lo-Fi Beats to Code To"
-                artist="Chillhop Music"
-                isPlaying={true}
-              />
+              <SpotifyWidget />
               <p className="text-xs text-muted-foreground text-center mt-3 font-hand">
                 current vibe while building
               </p>
