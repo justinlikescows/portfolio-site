@@ -1,19 +1,66 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
+
+const sections = [
+  { id: "hero", elevation: 1750 },
+  { id: "about", elevation: 3500 },
+  { id: "experience", elevation: 5250 },
+  { id: "projects", elevation: 7000 },
+  { id: "interests", elevation: 8750 },
+  { id: "skills", elevation: 10500 },
+  { id: "education", elevation: 12250 },
+  { id: "contact", elevation: 14000 },
+];
 
 export function ElevationTracker() {
-  const { scrollYProgress } = useScroll();
-  const [elevation, setElevation] = useState(0);
+  const [elevation, setElevation] = useState(1750);
 
   useEffect(() => {
-    return scrollYProgress.on("change", (latest) => {
-      // Map scroll progress to elevation (0-14,000 ft like climbing a peak)
-      const newElevation = Math.round(latest * 14000);
-      setElevation(newElevation);
-    });
-  }, [scrollYProgress]);
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollProgress = Math.min(Math.max(scrollTop / docHeight, 0), 1);
+      
+      // Find which two sections we're between
+      let currentElevation = 1750;
+      
+      for (let i = 0; i < sections.length - 1; i++) {
+        const currentSection = document.getElementById(sections[i].id);
+        const nextSection = document.getElementById(sections[i + 1].id);
+        
+        if (!currentSection || !nextSection) continue;
+        
+        const currentTop = currentSection.offsetTop;
+        const nextTop = nextSection.offsetTop;
+        
+        // If scroll position is between these two sections
+        if (scrollTop >= currentTop && scrollTop < nextTop) {
+          const sectionProgress = (scrollTop - currentTop) / (nextTop - currentTop);
+          const elevationDiff = sections[i + 1].elevation - sections[i].elevation;
+          currentElevation = sections[i].elevation + (elevationDiff * sectionProgress);
+          break;
+        }
+      }
+      
+      // Handle last section
+      const lastSection = document.getElementById(sections[sections.length - 1].id);
+      if (lastSection && scrollTop >= lastSection.offsetTop) {
+        const lastSectionTop = lastSection.offsetTop;
+        const remainingScroll = scrollTop - lastSectionTop;
+        const lastSectionHeight = lastSection.offsetHeight;
+        const progressInLastSection = Math.min(remainingScroll / lastSectionHeight, 1);
+        currentElevation = sections[sections.length - 1].elevation;
+      }
+      
+      setElevation(Math.round(currentElevation));
+    };
+
+    handleScroll(); // Initial calculation
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <motion.div

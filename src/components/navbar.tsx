@@ -51,9 +51,6 @@ export default function Navbar() {
             <Link href="/#projects" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Projects
             </Link>
-            <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Blog
-            </Link>
             <Link
               href={DATA.contact.social.LinkedIn.url}
               target="_blank"
@@ -83,7 +80,6 @@ export default function Navbar() {
               { href: "/#about", label: "About" },
               { href: "/#experience", label: "Experience" },
               { href: "/#projects", label: "Projects" },
-              { href: "/blog", label: "Blog" },
             ].map((item) => (
               <Link
                 key={item.href}
